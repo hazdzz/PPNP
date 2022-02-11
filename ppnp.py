@@ -1,4 +1,3 @@
-import logging
 import os
 import argparse
 
@@ -103,7 +102,7 @@ def get_parameters():
     enable_bias = args.enable_bias
     epochs = args.epochs
     opt = args.opt
-    patience = args.early_stopping_patience
+    patience = args.patience
 
     model_save_dir = os.path.join('./model/save', dataset)
     os.makedirs(name=model_save_dir, exist_ok=True)
