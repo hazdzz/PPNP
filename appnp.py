@@ -42,7 +42,7 @@ def get_parameters():
                         help='graph shift operator, default as sym_renorm_adj, rw_renorm_adj as alternative')
     parser.add_argument('--alpha', type=float, default=0.9, help='restart probability')
     parser.add_argument('--K_step', type=int, default=32, help='K power iteration step')
-    parser.add_argument('--K', type=int, default=3, help='K layer')
+    parser.add_argument('--K', type=int, default=2, help='K layer')
     parser.add_argument('--lr', type=float, default=0.01, help='learning rate, defaut as 0.01')
     parser.add_argument('--weight_decay', type=float, default=0.0001, help='weight decay (L2 penalty)')
     parser.add_argument('--n_hid', type=int, default=64, help='the channel size of hidden layer feature, default as 64')
