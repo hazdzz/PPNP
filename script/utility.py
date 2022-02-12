@@ -117,13 +117,19 @@ def calc_appr_filter(gso, alpha, K, device):
         for k in range(K):
             filter = alpha * gso * filter + (1 - alpha) * id
     else:
-        id = sp.identity(gso.shape[0], format='csc')
-        id = cnv_sparse_mat_to_coo_tensor(id, device)
-        filter = id
         if gso.is_sparse:
+            id = sp.identity(gso.shape[0], format='csc')
+            id = cnv_sparse_mat_to_coo_tensor(id, device)
+            filter = id
+            #gso = gso.to_dense()
+            #id = torch.eye(gso.shape[0], device=device)
+            #filter = id
             for k in range(K):
                 filter = alpha * torch.sparse.mm(gso, filter) + (1 - alpha) * id
+                #filter = alpha * torch.mm(gso, filter) + (1 - alpha) * id
         else:
+            id = torch.eye(gso.shape[0], device=device)
+            filter = id
             for k in range(K):
                 filter = alpha * torch.mm(gso, filter) + (1 - alpha) * id
 

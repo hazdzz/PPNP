@@ -46,7 +46,7 @@ def get_parameters():
     parser.add_argument('--weight_decay', type=float, default=0.0001, help='weight decay (L2 penalty)')
     parser.add_argument('--n_hid', type=int, default=64, help='the channel size of hidden layer feature, default as 64')
     parser.add_argument('--enable_bias', type=bool, default=True, help='default as True')
-    parser.add_argument('--droprate', type=float, default=0.5, help='dropout rate, default as 0.5')
+    parser.add_argument('--droprate', type=float, default=0, help='dropout rate, default as 0.5')
     parser.add_argument('--epochs', type=int, default=10000, help='epochs, default as 10000')
     parser.add_argument('--opt', type=str, default='adam', help='optimizer, default as adam')
     parser.add_argument('--patience', type=int, default=50, help='early stopping patience')
